@@ -1,21 +1,22 @@
 package com.raul.curso.springboot.webapp.springboot_web.controllers;
-
+import java.util.HashMap;
 import java.util.Map;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 
-@Controller
-public class UserController {
+@RestController
+public class UserRestController {
  
-    @GetMapping("/details")  
-    public String details(Map<String, Object> model){
-        model.put("title", "Hola mundo Spring Boot");
-        model.put("name", "Raúl");
-        model.put("lastname", "Sánchez");
-        return "details";
+    @GetMapping("/details2")  
+    public  Map<String, Object> details(){
+        Map<String, Object> body = new HashMap<>();
+        body.put("title", "Hola mundo Spring Boot");
+        body.put("name", "Raúl");
+        body.put("lastname", "Sánchez");
+        return body;
     }
 }
